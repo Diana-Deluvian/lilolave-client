@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.max-width-80ch {
+  max-width: 80ch;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

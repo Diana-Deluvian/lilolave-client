@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Login from './features/auth/Login';
+
 const AppRouter = () => {
   const dispatch = useDispatch();
 
@@ -10,15 +14,7 @@ const AppRouter = () => {
       <Header />
       <div className=''>
         <Routes>
-          <Route exact path='/' element={<Posts />} />
-          <Route exact path='/post/:_id' element={<SinglePost />} />
-          <Route exact path='/addPost' element={<AddPost />} />
-          <Route exact path='/editPost/:_id' element={<EditPost />} />
-
-          <Route exact path='/about' element={<About />} />
           <Route exact path='/login' element={<Login />} />
-
-          <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
       <Footer />
