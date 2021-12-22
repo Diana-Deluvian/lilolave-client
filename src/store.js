@@ -5,7 +5,7 @@ import authReducer from './features/auth/authSlice';
 
 export default configureStore({
   reducer: {
-    Posts: postsReducer,
+    posts: postsReducer,
     search: searchReducer,
     auth: authReducer,
   },

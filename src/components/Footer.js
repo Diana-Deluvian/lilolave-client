@@ -15,7 +15,7 @@ export default function Footer() {
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
   return (
-    <div className='bg-gray-500 text-white flex items-center justify-center text-center'>
+    <div className='bg-gray-500 text-white flex items-center py-2 justify-center text-center'>
       <span className='max-width-80ch mx-6 '>{quote}</span>
     </div>
   );
