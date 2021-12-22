@@ -11,13 +11,15 @@ const AppRouter = () => {
 
   return (
     <BrowserRouter>
-      <Header />
-      <div className=''>
-        <Routes>
-          <Route exact path='/login' element={<Login />} />
-        </Routes>
+      <div className='min-height-100vh flex flex-col'>
+        <Header />
+        <div className='grow'>
+          <Routes>
+            <Route exact path='/login' element={<Login />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </BrowserRouter>
   );
 };
