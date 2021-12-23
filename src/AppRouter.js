@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import Login from './features/auth/Login';
 import Posts from './features/posts/Posts.js';
 import { loadPosts } from './features/posts/postsSlice';
+import AddPost from './features/posts/AddPost';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -26,6 +27,7 @@ const AppRouter = () => {
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/about' element={<About />} />
           <Route exact path='/' element={<Posts />} />
+          <Route exact path='/addpost' element={<AddPost />} />
         </Routes>
         <Footer />
       </div>
