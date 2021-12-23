@@ -13,7 +13,7 @@ const Posts = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center max-width-80ch mx-4 my-8 border grow'>
+    <div className='flex flex-col items-center max-width-80ch w-full mx-4 my-8 border grow'>
       {isLoading ? (
         <h1>loading, yo</h1>
       ) : (

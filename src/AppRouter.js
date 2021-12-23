@@ -8,6 +8,7 @@ import { loadPosts } from './features/posts/postsSlice';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import About from './components/About';
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const AppRouter = () => {
 
         <Routes>
           <Route exact path='/login' element={<Login />} />
+          <Route exact path='/about' element={<About />} />
           <Route exact path='/' element={<Posts />} />
         </Routes>
         <Footer />
