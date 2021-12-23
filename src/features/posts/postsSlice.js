@@ -51,7 +51,7 @@ export const deletePost = createAsyncThunk(
       headers: { 'Content-Type': 'application/json', Authorization: token },
     });
     const json = await data.json();
-    return json;
+    return state;
   }
 );
 
@@ -107,8 +107,19 @@ const sliceOptions = {
     [updatePost.rejected]: (state, action) => {
       state.isLoading = false;
     },
+    [deletePost.pending]: (state, action) => {
+      state.isLoading = true;
+    },
     [deletePost.fulfilled]: (state, action) => {
+      console.log(action);
       state.posts = state.posts.filter((post) => post._id !== action.payload);
+      state.isLoading = false;
+      state.isReqSuccess = true;
+    },
+    [deletePost.rejected]: (state, action) => {
+      state.posts = state.posts.filter((post) => post._id !== action.payload);
+      state.isLoading = false;
+      state.isReqSuccess = false;
     },
   },
 };
