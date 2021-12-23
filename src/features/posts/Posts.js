@@ -1,16 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Post from '../../components/Post';
-import { selectFilteredPosts, deletePost, selectIsLoading } from './postsSlice';
+import { selectFilteredPosts, selectIsLoading } from './postsSlice';
 
 const Posts = () => {
-  const dispatch = useDispatch();
   const posts = useSelector(selectFilteredPosts);
   const isLoading = useSelector(selectIsLoading);
-
-  const handleDelete = (_id) => {
-    dispatch(deletePost(_id));
-  };
+  console.log(posts);
 
   return (
     <div className='flex flex-col items-center max-width-80ch w-full mx-4 my-8 border grow'>

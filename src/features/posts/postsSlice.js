@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { selectSearchCategory } from '../search/searchSlice';
 
 const url = 'https://lilolave.herokuapp.com';
-//const url = "http://localhost:8080"
+//const url = 'http://localhost:8080';
 
 export const loadPosts = createAsyncThunk('posts/getPosts', async () => {
   const data = await fetch(`${url}/posts`);
@@ -17,8 +17,8 @@ export const createPost = createAsyncThunk(
     const data = await fetch(`${url}/post`, {
       method: 'POST',
       credentials: 'include',
-      headers: { Authorization: token },
-      body: state,
+      headers: { 'Content-Type': 'application/json', Authorization: token },
+      body: JSON.stringify(state),
     });
     const json = await data.json();
     return json;

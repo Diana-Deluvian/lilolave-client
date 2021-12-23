@@ -136,7 +136,7 @@ export default function PostForm(props) {
       </div>
 
       <input
-        className='bg-black text-white py-2 w-32 mx-4 my-4 rounded'
+        className='bg-black text-white py-2 w-32 mx-4 my-4 rounded cursor-pointer'
         type='submit'
         value={isLoading ? 'Submitting...' : 'Submit'}
         onClick={handleSubmit}
