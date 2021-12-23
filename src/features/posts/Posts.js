@@ -17,7 +17,7 @@ const Posts = () => {
       {isLoading ? (
         <h1>loading, yo</h1>
       ) : (
-        posts.map((post) => <h1>A post, yo</h1>)
+        posts.map((post) => <Post post={post} />)
       )}
     </div>
   );

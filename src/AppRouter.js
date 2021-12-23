@@ -10,6 +10,7 @@ import AddPost from './features/posts/AddPost';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './components/About';
+import SinglePost from './components/SinglePost';
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const AppRouter = () => {
           <Route exact path='/about' element={<About />} />
           <Route exact path='/' element={<Posts />} />
           <Route exact path='/addpost' element={<AddPost />} />
+          <Route exact path='/post/:_id' element={<SinglePost />} />
         </Routes>
         <Footer />
       </div>
