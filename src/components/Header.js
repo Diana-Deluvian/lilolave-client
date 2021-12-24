@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import icon from '../assets/icon.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSearchCategory } from '../features/search/searchSlice';
+import { selectIsAuth } from '../features/auth/authSlice';
 
 export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showCategories, setShowCategories] = useState(false);
+  const isAuth = useSelector(selectIsAuth);
 
   const handleCategoryClick = (e) => {
     dispatch(setSearchCategory(e.target.innerText));
@@ -75,9 +77,15 @@ export default function Header() {
         <img className='h-6 mr-2 inline-block ' src={icon} />
         <span className='text-xl'>Lilolave</span>
       </Link>
-      <Link className='mr-4' to='/about'>
-        About
-      </Link>
+      {isAuth ? (
+        <Link className='mr-4' to='/addPost'>
+          New Post
+        </Link>
+      ) : (
+        <Link className='mr-4' to='/about'>
+          About
+        </Link>
+      )}
     </div>
   );
 }

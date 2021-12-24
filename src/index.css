@@ -48,3 +48,15 @@ code {
 .heartbeatAnimation {
   animation: heartbeat 1.25s infinite;
 }
+
+.postShadow {
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+}
+
+.postShadow:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+  border-left-color: rgba(0, 0, 0, 0);
+}
