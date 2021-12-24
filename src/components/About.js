@@ -5,7 +5,7 @@ export default function About() {
 
   return (
     <div className='flex flex-col grow max-width-80ch'>
-      <h1 className='text-3xl mt-8 text-center'>
+      <h1 className='text-3xl mt-8 text-center '>
         A little bit on the name Lilolave:
       </h1>
       <p className={paragraphClasses}>

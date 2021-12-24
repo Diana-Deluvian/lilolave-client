@@ -18,6 +18,7 @@ const SinglePost = () => {
   const isAuth = useSelector(selectIsAuth);
   const { _id } = useParams();
   const post = useSelector(selectPosts).find((post) => post._id === _id);
+  console.log(post.content);
 
   const handleDelete = () => {
     dispatch(deletePost(_id));
@@ -47,16 +48,18 @@ const SinglePost = () => {
     );
   }
   return (
-    <div className='flex flex-col grow w-full max-width-80ch px-4 border'>
+    <div className='flex flex-col grow w-full max-width-80ch px-4'>
       <h1 className='mt-8 mb-2 text-2xl md:text-3xl text-center'>
         {post?.title}
       </h1>
-      <p className='my-2'>{post?.content}</p>
-      {isAuth ? <p className='my-2'>{post?.personalNotes}</p> : null}
+      <p className='my-2 whitespace-pre-line'>{post?.content}</p>
+      {isAuth ? (
+        <p className='my-2 whitespace-pre-line'>{post?.personalNotes}</p>
+      ) : null}
       {post?.otherInfo ? (
         <p className='text-gray-700'>Additional / Other info: </p>
       ) : null}
-      <p className='my-2'>{post?.otherInfo}</p>
+      <p className='my-2 whitespace-pre-line'>{post?.otherInfo}</p>
       <p>Published on: {post?.date}</p>
 
       {isAuth ? (

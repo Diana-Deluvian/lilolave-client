@@ -25,6 +25,8 @@ export default function PostForm(props) {
     };
   });
 
+  console.log(post.content);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPost((prevState) => ({
