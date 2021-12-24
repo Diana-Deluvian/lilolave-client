@@ -25,6 +25,7 @@ export const createPost = createAsyncThunk(
   'posts/createPost',
   async (state, action) => {
     const { token } = action.getState().auth;
+    delete state._id;
     const data = await fetch(`${url}/post`, {
       method: 'POST',
       credentials: 'include',
@@ -39,7 +40,6 @@ export const createPost = createAsyncThunk(
 export const updatePost = createAsyncThunk(
   'posts/updatePost',
   async (state, action) => {
-    console.log(state);
     const { token } = action.getState().auth;
     const data = await fetch(`${url}/post/${state._id}`, {
       method: 'PUT',
@@ -111,7 +111,6 @@ const sliceOptions = {
       state.isLoading = true;
     },
     [updatePost.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.posts = state.posts.filter(
         (post) => post._id !== action.payload._id
       );
