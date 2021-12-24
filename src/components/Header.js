@@ -26,7 +26,7 @@ export default function Header() {
       </span>
       <Link className='flex items-center ' to='/'>
         <div></div>
-        <img className='h-6 mr-2 inline-block' src={icon} />
+        <img className='h-6 mr-2 inline-block ' src={icon} />
         <span className='text-xl'>Lilolave</span>
       </Link>
       <Link className='mr-4' to='/about'>
