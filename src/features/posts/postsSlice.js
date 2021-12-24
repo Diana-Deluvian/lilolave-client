@@ -4,11 +4,22 @@ import { selectSearchCategory } from '../search/searchSlice';
 const url = 'https://lilolave.herokuapp.com';
 //const url = 'http://localhost:8080';
 
-export const loadPosts = createAsyncThunk('posts/getPosts', async () => {
-  const data = await fetch(`${url}/posts`);
-  const json = await data.json();
-  return json;
-});
+export const loadPosts = createAsyncThunk(
+  'posts/getPosts',
+  async (state, action) => {
+    const { token, isAuth } = action.getState().auth;
+
+    const data = isAuth
+      ? await fetch(`${url}/allPosts`, {
+          method: 'GET',
+          credentials: 'include',
+          headers: { Authorization: token },
+        })
+      : await fetch(`${url}/posts`);
+    const json = await data.json();
+    return json;
+  }
+);
 
 export const createPost = createAsyncThunk(
   'posts/createPost',
@@ -48,7 +59,7 @@ export const deletePost = createAsyncThunk(
     const data = await fetch(`${url}/post/${state}`, {
       method: 'DELETE',
       credentials: 'include',
-      headers: { 'Content-Type': 'application/json', Authorization: token },
+      headers: { Authorization: token },
     });
     const json = await data.json();
     return state;
