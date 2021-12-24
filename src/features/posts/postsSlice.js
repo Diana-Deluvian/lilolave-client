@@ -85,7 +85,12 @@ const sliceOptions = {
       state.hasError = false;
     },
     [loadPosts.fulfilled]: (state, action) => {
-      state.posts = action.payload;
+      console.log(action.payload);
+      state.posts = action.payload.sort(function (a, b) {
+        return b.pinned;
+      });
+      //puts the pinned posts first
+      console.log(state.posts);
       state.isLoading = false;
       state.hasError = false;
     },

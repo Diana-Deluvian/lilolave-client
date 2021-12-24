@@ -20,6 +20,7 @@ export default function PostForm(props) {
       keywords: props.post ? props.post.keywords : '',
       otherInfo: props.post ? props.post.otherInfo : '',
       hidden: props.post ? props.post.hidden : true,
+      pinned: props.post ? props.post.pinned : false,
     };
   });
 
@@ -129,9 +130,21 @@ export default function PostForm(props) {
           className='form-checkbox border-2 border-black max-width-80ch ml-2 outline-none text-black focus:border-black'
           type='checkbox'
           onChange={(e) => setPost({ ...post, hidden: !post.hidden })}
-          name='visible'
+          name='hidden'
           value={post.hidden}
           checked={post.hidden}
+        />
+      </div>
+
+      <div className='block w-full flex mt-4 items-center'>
+        <span className='text-gray-700'>Pinned:</span>
+        <input
+          className='form-checkbox border-2 border-black max-width-80ch ml-2 outline-none text-black focus:border-black'
+          type='checkbox'
+          onChange={(e) => setPost({ ...post, pinned: !post.pinned })}
+          name='pinned'
+          value={post.pinned}
+          checked={post.pinned}
         />
       </div>
 
