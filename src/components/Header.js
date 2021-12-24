@@ -76,7 +76,7 @@ export default function Header() {
         <Link className='flex items-center ' to='/'>
           <div></div>
           <img className='h-6 mr-2 inline-block ' src={icon} />
-          <span className='text-4xl font-islandMoments'>Lilolave</span>
+          <span className='text-5xl font-islandMoments'>Lilolave</span>
         </Link>
         {isAuth ? (
           <Link className='mr-4' to='/addPost'>
