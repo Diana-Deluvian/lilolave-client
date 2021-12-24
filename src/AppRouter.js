@@ -29,6 +29,11 @@ const AppRouter = () => {
           <Route exact path='/about' element={<About />} />
           <Route exact path='/' element={<Posts />} />
           <Route exact path='/addpost' element={<AddPost />} />
+          <Route
+            exact
+            path='/editPost/:_id'
+            element={<AddPost edit={true} />}
+          />
           <Route exact path='/post/:_id' element={<SinglePost />} />
         </Routes>
         <Footer />

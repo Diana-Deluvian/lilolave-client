@@ -32,9 +32,18 @@ const SinglePost = () => {
 
   if (!post) {
     return (
-      <h1>
-        Sorry, we were unable to find this silly lil post, please try again!
-      </h1>
+      <div className='flex flex-col grow max-width-80ch mx-4'>
+        <p className='text-lg mt-8'>
+          Loading post, please wait. If this operation takes too long, it either
+          doesn't exist, or we are experiencing server difficulties.
+        </p>
+        <Link
+          className='bg-black p-4 text-white rounded mt-4 w-max text-center'
+          to='/'
+        >
+          Back to the main website
+        </Link>
+      </div>
     );
   }
   return (
@@ -52,7 +61,10 @@ const SinglePost = () => {
 
       {isAuth ? (
         <div className='flex justify-center relative mt-4 pb-16 '>
-          <button className='py-2 w-32 border-2 border-black rounded mr-4'>
+          <button
+            className='py-2 w-32 border-2 border-black rounded mr-4'
+            onClick={() => navigate(`/editPost/${post._id}`)}
+          >
             Edit
           </button>
           <button

@@ -21,6 +21,7 @@ export default function PostForm(props) {
       otherInfo: props.post ? props.post.otherInfo : '',
       hidden: props.post ? props.post.hidden : true,
       pinned: props.post ? props.post.pinned : false,
+      _id: props.post ? props.post._id : null,
     };
   });
 

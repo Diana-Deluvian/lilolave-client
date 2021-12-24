@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 import { selectSearchCategory } from '../search/searchSlice';
 
 const url = 'https://lilolave.herokuapp.com';
@@ -39,13 +40,13 @@ export const createPost = createAsyncThunk(
 export const updatePost = createAsyncThunk(
   'posts/updatePost',
   async (state, action) => {
+    console.log(state);
     const { token } = action.getState().auth;
-    const _id = state.get('_id');
-    const data = await fetch(`${url}/post/${_id}`, {
+    const data = await fetch(`${url}/post/${state._id}`, {
       method: 'PUT',
       credentials: 'include',
-      headers: { Authorization: token },
-      body: state,
+      headers: { 'Content-Type': 'application/json', Authorization: token },
+      body: JSON.stringify(state),
     });
     const json = await data.json();
     return json;
@@ -85,12 +86,10 @@ const sliceOptions = {
       state.hasError = false;
     },
     [loadPosts.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.posts = action.payload.sort(function (a, b) {
         return b.pinned;
       });
       //puts the pinned posts first
-      console.log(state.posts);
       state.isLoading = false;
       state.hasError = false;
     },
@@ -113,6 +112,7 @@ const sliceOptions = {
       state.isLoading = true;
     },
     [updatePost.fulfilled]: (state, action) => {
+      console.log(action.payload);
       state.posts = state.posts.filter(
         (post) => post._id !== action.payload._id
       );
@@ -127,7 +127,6 @@ const sliceOptions = {
       state.isLoading = true;
     },
     [deletePost.fulfilled]: (state, action) => {
-      console.log(action);
       state.posts = state.posts.filter((post) => post._id !== action.payload);
       state.isLoading = false;
       state.isReqSuccess = true;
@@ -150,8 +149,8 @@ export const selectIsReqSuccess = (state) => state.posts.isReqSuccess;
 
 export const selectFilteredPosts = (state) => {
   const posts = selectPosts(state);
-  const category = '';
-  if (category === '') return posts;
+  const category = selectSearchCategory(state);
+  if (category === 'All') return posts;
   else {
     return posts.filter((post) => post.category === category);
   }

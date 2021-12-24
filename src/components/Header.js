@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import icon from '../assets/icon.svg';
+import { useDispatch } from 'react-redux';
+import { setSearchCategory } from '../features/search/searchSlice';
 
 export default function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showCategories, setShowCategories] = useState(false);
+
+  const handleCategoryClick = (e) => {
+    dispatch(setSearchCategory(e.target.innerText));
+    navigate('/');
+  };
   return (
     <div className='w-full flex justify-between bg-black text-white p-4 items-center '>
       <span
@@ -12,15 +21,52 @@ export default function Header() {
       >
         Categories
         {showCategories && (
-          <div className='absolute flex flex-col bg-black text-white -left-8 top-8 w-32 items-center p-2'>
+          <div className='absolute flex flex-col bg-black text-white -left-8 top-8 w-32 items-center cursor-default p-2'>
             <h2 className='p-2'>Literature</h2>
-            <p className='text-sm text-gray-200'>Essays</p>
-            <p className='text-sm text-gray-200'>Poems</p>
-            <p className='text-sm text-gray-200'>Reviews</p>
+            <p
+              onClick={handleCategoryClick}
+              className='text-sm text-gray-200 cursor-pointer'
+            >
+              Essays
+            </p>
+            <p
+              onClick={handleCategoryClick}
+              className='text-sm text-gray-200 cursor-pointer'
+            >
+              Poems
+            </p>
+            <p
+              onClick={handleCategoryClick}
+              className='text-sm text-gray-200 cursor-pointer'
+            >
+              Reviews
+            </p>
             <h2 className='p-2'>Media</h2>
-            <p className='text-sm text-gray-200'>Game Analysis</p>
-            <p className='text-sm text-gray-200'>Series Study</p>
-            <p className='text-sm text-gray-200'>Film Critique</p>
+            <p
+              onClick={handleCategoryClick}
+              className='text-sm text-gray-200 cursor-pointer'
+            >
+              Game Analysis
+            </p>
+            <p
+              onClick={handleCategoryClick}
+              className='text-sm text-gray-200 cursor-pointer'
+            >
+              Series Study
+            </p>
+            <p
+              onClick={handleCategoryClick}
+              className='text-sm text-gray-200 cursor-pointer'
+            >
+              Film Critique
+            </p>
+
+            <p
+              onClick={handleCategoryClick}
+              className='text-sm text-gray-200 cursor-pointer mt-4'
+            >
+              All
+            </p>
           </div>
         )}
       </span>

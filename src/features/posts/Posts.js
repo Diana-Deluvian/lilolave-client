@@ -6,7 +6,6 @@ import { selectFilteredPosts, selectIsLoading } from './postsSlice';
 const Posts = () => {
   const posts = useSelector(selectFilteredPosts);
   const isLoading = useSelector(selectIsLoading);
-  console.log(posts);
 
   return (
     <div className='flex flex-col items-center max-width-80ch w-full mx-4 my-8 grow'>
@@ -28,7 +27,7 @@ const Posts = () => {
           ></path>
         </svg>
       ) : (
-        posts.map((post) => <Post post={post} />)
+        posts.map((post) => <Post post={post} key={post._id} />)
       )}
     </div>
   );

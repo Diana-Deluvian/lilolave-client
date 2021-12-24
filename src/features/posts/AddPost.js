@@ -1,25 +1,30 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   createPost,
+  selectPosts,
   selectIsLoading,
   selectIsReqSuccess,
   resetIsReqSuccess,
+  updatePost,
 } from './postsSlice';
 import PostForm from '../../components/PostForm';
 
-const AddPost = () => {
+const AddPost = ({ edit }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoading = useSelector(selectIsLoading);
   const isReqSuccess = useSelector(selectIsReqSuccess);
+  const { _id } = useParams();
+  const post =
+    useSelector(selectPosts).find((post) => post._id === _id) || null;
 
   const handleSubmit = async (post) => {
     const res = await fetch('https://pifc.herokuapp.com/');
     const data = await res.json();
     post.date = data.fullDate;
-    dispatch(createPost(post));
+    edit ? dispatch(updatePost(post)) : dispatch(createPost(post));
   };
   useEffect(() => {
     if (isReqSuccess) navigate('/');
@@ -34,6 +39,7 @@ const AddPost = () => {
         handleSubmit={handleSubmit}
         isLoading={isLoading}
         isReqSuccess={isReqSuccess}
+        post={post}
       />
     </React.Fragment>
   );

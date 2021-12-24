@@ -11,7 +11,7 @@ export const categories = [
 
 export const searchSlice = createSlice({
   name: 'search',
-  initialState: { keyword: '', category: '' },
+  initialState: { keyword: '', category: 'All' },
   reducers: {
     setSearchKeyword: (state, action) => {
       state.keyword = action.payload;
