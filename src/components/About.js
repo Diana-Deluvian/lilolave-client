@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function About() {
   const paragraphClasses = 'mt-4 mx-4';
@@ -37,11 +38,22 @@ export default function About() {
         male, adult, or any other amalgamation of force of oppression, no matter
         how local or global.
       </p>
-      <p className={`${paragraphClasses} mb-4`}>
+      <p className={`${paragraphClasses}`}>
         Finally, this tiny soliloquy, it's playfulness and cheer makes me happy.
         It symbolises the sort of freedom and genuine joy that tends to be found
         only in small hours of a lifetime, on infrequent occasion, when the
         setting of the world is just right for just that one moment.
+      </p>
+
+      <p className={`${paragraphClasses} mb-8`}>
+        Note: if you're confused about the dates, they relate to my own personal
+        calendar. If you'd like to learn more, please refer to{' '}
+        <Link
+          className='bg-black text-white px-2 rounded'
+          to='https://github.com/Diana-Deluvian/personal-international-fixed-calendar-api'
+        >
+          this git repository.
+        </Link>
       </p>
     </div>
   );
