@@ -1,5 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { selectSearchCategory } from '../search/searchSlice';
+import {
+  selectSearchCategory,
+  selectSearchKeyword,
+} from '../search/searchSlice';
 
 const url = 'https://lilolave.herokuapp.com';
 //const url = 'http://localhost:8080';
@@ -151,6 +154,8 @@ export const selectIsReqSuccess = (state) => state.posts.isReqSuccess;
 export const selectFilteredPosts = (state) => {
   const posts = selectPosts(state);
   const category = selectSearchCategory(state);
+  const keyword = selectSearchKeyword(state);
+  if (keyword) return posts.filter((post) => post.keywords.includes(keyword));
   if (category === 'All') return posts;
   else {
     return posts.filter((post) => post.category === category);

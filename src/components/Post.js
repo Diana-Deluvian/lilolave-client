@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Post({ post }) {
+export default function Post({ post, onKeywordClick }) {
   return (
     <div className='flex flex-col w-full border-l-2 border-t-2 border-gray-200  bg-gray-100 postShadow justify-center px-2 max-width-80ch ml-4 mr-8 lg:px-4 lg:mx-0 my-6'>
       <Link to={`/post/${post._id}`}>
@@ -17,6 +17,7 @@ export default function Post({ post }) {
             <span
               className='bg-black text-white rounded py-2 px-2 mr-2'
               key={keyword}
+              onClick={onKeywordClick}
             >
               {keyword}
             </span>

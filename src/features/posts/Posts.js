@@ -1,11 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Post from '../../components/Post';
 import { selectFilteredPosts, selectIsLoading } from './postsSlice';
+import {
+  setSearchKeyword,
+  clearSearchKeyword,
+  selectSearchKeyword,
+} from '../search/searchSlice';
 
 const Posts = () => {
   const posts = useSelector(selectFilteredPosts);
   const isLoading = useSelector(selectIsLoading);
+  const searchKeyword = useSelector(selectSearchKeyword);
+  const dispatch = useDispatch();
+
+  const onKeywordClick = (e) => {
+    e.preventDefault();
+    dispatch(setSearchKeyword(e.target.innerText));
+  };
 
   return (
     <div className='flex flex-col px-6 items-center max-width-80ch w-full mx-2 my-8 grow'>
@@ -27,7 +39,22 @@ const Posts = () => {
           ></path>
         </svg>
       ) : (
-        posts.map((post) => <Post post={post} key={post._id} />)
+        <React.Fragment>
+          {searchKeyword ? (
+            <div>
+              <span className='px-2 py-1'>{`Keyword: "${searchKeyword}"`}</span>
+              <button
+                className='bg-black text-white px-2 py-1 rounded ml-2'
+                onClick={() => dispatch(clearSearchKeyword())}
+              >
+                Clear
+              </button>
+            </div>
+          ) : null}
+          {posts.map((post) => (
+            <Post post={post} key={post._id} onKeywordClick={onKeywordClick} />
+          ))}
+        </React.Fragment>
       )}
     </div>
   );
