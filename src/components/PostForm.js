@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectIsAuth } from '../features/auth/authSlice';
@@ -24,6 +24,10 @@ export default function PostForm(props) {
       _id: props.post ? props.post._id : null,
     };
   });
+
+  useEffect(() => {
+    if (props.post) setPost(props.post);
+  }, [props]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
