@@ -18,7 +18,6 @@ const SinglePost = () => {
   const isAuth = useSelector(selectIsAuth);
   const { _id } = useParams();
   const posts = useSelector(selectPosts);
-  console.log(posts);
   const post = posts.find((post) => post._id === _id);
 
   const handleDelete = () => {

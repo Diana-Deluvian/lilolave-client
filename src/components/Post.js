@@ -18,7 +18,13 @@ export default function Post({ post }) {
             </span>
           ))}
         </div>
-        <p className='mb-4'>{`${post?.content?.substring(0, 100)}...`}</p>
+        <p className='mb-4'>
+          {`${post?.content?.split(/\r?\n/)[0].substring(0, 100)} `}{' '}
+          <span className='text-gray-600'>(...read more)</span>
+        </p>
+        {
+          //the above returns at most the first 100 chars of the first paragraph of a post
+        }
       </Link>
     </div>
   );
