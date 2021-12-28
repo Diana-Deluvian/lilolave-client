@@ -8,7 +8,7 @@ const Posts = () => {
   const isLoading = useSelector(selectIsLoading);
 
   return (
-    <div className='flex flex-col items-center max-width-80ch w-full mx-4 my-8 grow'>
+    <div className='flex flex-col px-6 items-center max-width-80ch w-full mx-2 my-8 grow'>
       {isLoading ? (
         //adding it as an svg to not suffer from compression as its size change
         <svg
