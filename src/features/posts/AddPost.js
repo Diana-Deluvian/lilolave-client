@@ -21,9 +21,6 @@ const AddPost = ({ edit }) => {
     useSelector(selectPosts).find((post) => post._id === _id) || null;
 
   const handleSubmit = async (post) => {
-    const res = await fetch('https://pifc.herokuapp.com/');
-    const data = await res.json();
-    post.date = data.fullDate;
     edit ? dispatch(updatePost(post)) : dispatch(createPost(post));
   };
   useEffect(() => {

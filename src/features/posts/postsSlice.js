@@ -25,6 +25,9 @@ export const createPost = createAsyncThunk(
   'posts/createPost',
   async (state, action) => {
     const { token } = action.getState().auth;
+    const dateData = await fetch('https://pifc.herokuapp.com/');
+    const dateJson = await dateData.json();
+    state.date = dateJson.fullDate;
     delete state._id;
     const data = await fetch(`${url}/post`, {
       method: 'POST',
