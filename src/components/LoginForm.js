@@ -24,7 +24,7 @@ const LoginForm = (props) => {
       className='w-screen-lg my-auto justify-center flex flex-col items-center text-center relative'
       onSubmit={handleOnSubmit}
     >
-      <p className='text-gray-500 mx-2 mt-6 max-width-80ch'>
+      <p className='text-gray-500 mx-2 mt-6 max-width-65ch'>
         (Please note, this is for administrators only. Then again, if you feel
         like hacking, be my guest. If you break my security, I will buy you a
         pizza.)

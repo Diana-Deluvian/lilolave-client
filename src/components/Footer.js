@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <div className='bg-gray-500 w-full text-white flex items-center py-2 justify-center text-center'>
-      <span className='max-width-80ch mx-6 '>{quote}</span>
+      <span className='max-width-65ch mx-6 '>{quote}</span>
     </div>
   );
 }

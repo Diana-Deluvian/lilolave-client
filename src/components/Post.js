@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Post({ post, onKeywordClick }) {
   return (
-    <div className='flex flex-col w-full border-l-2 border-t-2 border-gray-200  bg-gray-100 postShadow justify-center px-2 max-width-80ch ml-4 mr-8 lg:px-4 lg:mx-0 my-6'>
+    <div className='flex flex-col w-full border-l-2 border-t-2 border-gray-200  bg-gray-100 postShadow justify-center px-2 max-width-65ch ml-4 mr-8 lg:px-4 lg:mx-0 my-6'>
       <Link to={`/post/${post._id}`}>
         <div className='flex justify-between'>
           <span className='text-xl'>{post?.title || 'No title provided'}</span>

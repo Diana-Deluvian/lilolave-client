@@ -33,7 +33,7 @@ const SinglePost = () => {
 
   if (posts.length === 0) {
     return (
-      <div className='flex flex-col items-center max-width-80ch w-full mx-4 my-8 grow'>
+      <div className='flex flex-col items-center max-width-65ch w-full mx-4 my-8 grow'>
         {
           //adding it as an svg to not suffer from compression as its size change
         }
@@ -58,7 +58,7 @@ const SinglePost = () => {
 
   if (!post) {
     return (
-      <div className='flex flex-col grow max-width-80ch mx-4'>
+      <div className='flex flex-col grow max-width-65ch mx-4'>
         <p className='text-lg mt-8'>
           Loading post, please wait. If this operation takes too long, it either
           doesn't exist, or we are experiencing server difficulties.
@@ -73,7 +73,7 @@ const SinglePost = () => {
     );
   }
   return (
-    <div className='flex flex-col grow w-full max-width-80ch px-4'>
+    <div className='flex flex-col grow w-full max-width-65ch px-4'>
       <h1 className='mt-8 mb-2 text-2xl md:text-3xl text-center'>
         {post?.title}
       </h1>
