@@ -6,6 +6,9 @@
 
 .max-width-65ch {
   max-width: 65ch;
+  /* would be 80, but the standard character is narrower than the defined char 
+     not a pretty solution, and I will revisit this at some point
+  */
 }
 
 .min-height-100vh {

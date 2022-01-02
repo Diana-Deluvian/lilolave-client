@@ -85,7 +85,7 @@ const SinglePost = () => {
         <p className='text-gray-700'>Additional / Other info: </p>
       ) : null}
       <p className='my-2 whitespace-pre-line'>{post?.otherInfo}</p>
-      <p>Published on: {post?.date}</p>
+      <p className='mb-4'>Published on: {post?.date}</p>
 
       {isAuth ? (
         <div className='flex justify-center relative mt-4 pb-16 '>
