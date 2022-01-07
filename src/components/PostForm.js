@@ -37,11 +37,6 @@ export default function PostForm(props) {
     }));
   };
 
-  const setRows = (text) => {
-    return Math.floor(text.length / 80) + 6 + (text.match(/\n/g) || '').length;
-    //counts the number of new lines to add
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     props.handleSubmit(post);
@@ -101,21 +96,18 @@ export default function PostForm(props) {
         label='Personal Notes'
         name='personalNotes'
         value={post.personalNotes}
-        rows={setRows(post.personalNotes)}
       />
       <Textarea
         handleInputChange={handleInputChange}
         label='Content'
         name='content'
         value={post.content}
-        rows={setRows(post.content)}
       />
       <Textarea
         handleInputChange={handleInputChange}
         label='Additional or other information'
         name='otherInfo'
         value={post.otherInfo}
-        rows={setRows(post.otherInfo) - 4}
       />
 
       <div className='block w-full flex flex-col mt-4'>
