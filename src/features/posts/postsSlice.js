@@ -92,7 +92,8 @@ const sliceOptions = {
     },
     [loadPosts.fulfilled]: (state, action) => {
       state.posts = action.payload.sort(function (a, b) {
-        return b.pinned;
+        return b.pinned - a.pinned;
+        //puts the pinned
       });
       //puts the pinned posts first
       state.isLoading = false;
