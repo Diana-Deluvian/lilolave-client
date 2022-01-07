@@ -113,7 +113,7 @@ export default function PostForm(props) {
       <div className='block w-full flex flex-col mt-4'>
         <span className='text-gray-700'>Keywords:</span>
         <input
-          className='border-2 border-black  mt-2 outline-none'
+          className='border-2 border-black px-2  mt-2 outline-none'
           type='text'
           onChange={handleInputChange}
           name='keywords'
