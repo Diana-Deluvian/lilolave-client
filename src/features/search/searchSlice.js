@@ -7,6 +7,7 @@ export const categories = [
   'Game Analysis',
   'Series Study',
   'Film Critique',
+  'Personal',
 ];
 
 export const searchSlice = createSlice({

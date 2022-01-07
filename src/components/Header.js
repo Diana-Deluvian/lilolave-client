@@ -70,6 +70,13 @@ export default function Header() {
               >
                 All
               </p>
+
+              <p
+                onClick={handleCategoryClick}
+                className='text-sm text-gray-200 cursor-pointer'
+              >
+                Personal
+              </p>
             </div>
           )}
         </span>
