@@ -58,7 +58,7 @@ export default function PostForm(props) {
     );
   }
   return (
-    <div className='flex flex-col grow items-center mx-4 md:mx-0'>
+    <div className='flex flex-col grow items-center mx-4 md:mx-0 max-width-65ch'>
       <div className='mt-8 text-xl'>
         <label className='mr-4 text-gray-700'>Title:</label>
         <input
@@ -113,7 +113,7 @@ export default function PostForm(props) {
       <div className='block w-full flex flex-col mt-4'>
         <span className='text-gray-700'>Keywords:</span>
         <input
-          className='border-2 border-black max-width-65ch mt-2 outline-none'
+          className='border-2 border-black  mt-2 outline-none'
           type='text'
           onChange={handleInputChange}
           name='keywords'
@@ -124,7 +124,7 @@ export default function PostForm(props) {
       <div className='block w-full flex mt-4 items-center'>
         <span className='text-gray-700'>Hidden:</span>
         <input
-          className='form-checkbox border-2 border-black max-width-65ch ml-2 outline-none text-black focus:border-black'
+          className='form-checkbox border-2 border-black  ml-2 outline-none text-black focus:border-black'
           type='checkbox'
           onChange={(e) => setPost({ ...post, hidden: !post.hidden })}
           name='hidden'
@@ -136,7 +136,7 @@ export default function PostForm(props) {
       <div className='block w-full flex mt-4 items-center'>
         <span className='text-gray-700'>Pinned:</span>
         <input
-          className='form-checkbox border-2 border-black max-width-65ch ml-2 outline-none text-black focus:border-black'
+          className='form-checkbox border-2 border-black  ml-2 outline-none text-black focus:border-black'
           type='checkbox'
           onChange={(e) => setPost({ ...post, pinned: !post.pinned })}
           name='pinned'
